@@ -1,0 +1,42 @@
+<div class="container">
+    <h2>Products</h2>
+  
+    <hr>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">PRICE</th>
+          <th scope="col">PHOTO</th>
+          <th scope="col">FAVORITE</th>
+          <th scope="col">DESCRIPTION</th>
+          <th scope="col">STARS</th>
+          <th scope="col">SUPPLIER</th>
+          <th scope="col">TAX</th>
+          <th> <button class="btn btn-primary mx-1" title="Add New User"><i class="bi bi-plus"></i></button></th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr *ngFor="let product of productsDto">
+          <td scope="row"> {{product.id}} </td>
+          <td>{{product.name}}</td>
+          <td>{{product.price}}</td>
+          <td>{{product.photo}}</td>
+          <td>{{product.favorite}}</td>
+          <td>{{product.description}}</td>
+          <td>{{product.stars}}</td>
+          <td>{{product.supplier}}</td>
+          <td>{{product.tax}}</td>
+          <td>  
+            <div>
+                <button class="btn btn-primary mx-1" title="Edit User"><a routerLink="/client/create"></a><i class="bi bi-pencil"></i></button>
+                <button class="btn btn-danger mx-1" title="Delete User"><i class="bi bi-trash"></i></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

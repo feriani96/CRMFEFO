@@ -4,19 +4,30 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { ReportsComponent } from './pages/reports/reports.component';
-import { UsersComponent } from './pages/users/users.component';
+
+import { ClientComponent } from './pages/client/client.component';
+import { InvoiceComponent } from './pages/invoice/invoice.component';
+import { ProductComponent } from './pages/product/product.component';
+import { SaleComponent } from './pages/sale/sale.component';
+import { CreateClientComponent } from './pages/client/create-client/create-client.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    ReportsComponent,
-    UsersComponent
+    ClientComponent,
+    InvoiceComponent,
+    ProductComponent,
+    SaleComponent,
+    CreateClientComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
