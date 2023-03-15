@@ -1,5 +1,6 @@
 
 export class Product {
+
     id:string;
     name:string;
     price:number;
@@ -28,15 +29,13 @@ export class Product {
 }
 
 export interface ProductDto {
-    id:string;
-    name:string;
-    price:number;
-    favorite:boolean;
-    photo:any;
-    description:string;
-    stars:number;
-    supplier:string;
-    tax:number;
-   
-    
-  }
+  id:string;
+  name:string;
+  price:number;
+  favorite:boolean;
+  photo:any;
+  description:string;
+  stars:number;
+  supplier:string;
+  tax:number;
+}

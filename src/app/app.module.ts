@@ -7,10 +7,10 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 import { ClientComponent } from './pages/client/client.component';
 import { InvoiceComponent } from './pages/invoice/invoice.component';
-import { ProductComponent } from './pages/product/product.component';
 import { SaleComponent } from './pages/sale/sale.component';
 import { CreateClientComponent } from './pages/client/create-client/create-client.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductModule } from './product/product.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,6 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     ClientComponent,
     InvoiceComponent,
-    ProductComponent,
     SaleComponent,
     CreateClientComponent
   ],
@@ -26,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ProductModule
     
 
   ],

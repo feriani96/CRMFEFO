@@ -1,0 +1,115 @@
+<!-- <div class="container">
+    <div class="text-center"><h1>Edit Student</h1></div>
+    <div style="width:50%;margin:auto">
+      <form [formGroup]="addForm" novalidate class="form">  
+        <input type="hidden" name="id" formControlName="id">
+        <div class="row">
+          <div class="col-md-6">First Name</div>
+          <div class="col-md-6"><input type="text" class="form-control" name="first_name" formControlName="first_name"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">Last Name</div>
+          <div class="col-md-6"><input class="form-control" type="text" name="last_name" formControlName="last_name"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">Email</div>
+          <div class="col-md-6"><input type="text" class="form-control" name="email" formControlName="email"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">Password</div>
+          <div class="col-md-6"><input type="text" class="form-control" name="password" formControlName="password"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">Gender</div>
+          <div class="col-md-6">
+            Male :   <input formControlName="gender" type="radio" name="gender" value="male">
+            Female :   <input formControlName="gender" type="radio" name="gender" value="female">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">Hobbies</div>
+          <div class="col-md-6">
+            <div *ngFor="let result of HobbyArray">
+              <input type="checkbox"  [ngModel]="result.value"
+                (ngModelChange)="result.value=$event;addForm.get('hobbyField').setValue(parse())"
+                [ngModelOptions]="{standalone:true}"
+                >{{result.name}}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">Country</div>
+          <div class="col-md-6">
+            <select formControlName="country" name="country" class="form-control">
+              <option value="india">India</option>
+              <option value="china">China</option>
+              <option value="usa">USA</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <button class="btn btn-success"   (click)="onEdit()">EDIT STUDENT</button>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div> -->
+
+  <div class="container">
+    <legend>Create Product</legend>
+    <form [formGroup]="productForm">
+
+      <!-- *ngIf="editForm.controls.id.value !== null" -->
+      <!-- <div class="mb-3" >
+
+        <label for="txtId" class="form-label">ID</label>
+        <input type="text" name="id" [(ngModel)] = "productForm.id"  class="form-control" id="txtId" />
+      </div> -->
+
+      <div class="mb-3">
+        <label for="txtName" class="form-label">Name</label>
+        <input class="form-control"  formControlName="name" type="text" placeholder="Enter product name..."/>
+      </div>
+
+      <div class="mb-3">
+        <label for="txtPrice" class="form-label">Price</label>
+        <input class="input form-control" formControlName="price" type="number" placeholder="Enter product price...">      
+      </div>
+        
+      <div class="mb-3">
+        <label for="txtFavorite" class="form-label">Favorite</label>
+        <input class="input form-control" formControlName="favorite" type="boolean"/>
+      </div>
+
+      <div class="mb-3">
+        <label for="txtFavorite" class="form-label">Photo</label>
+        <input class="input form-control" formControlName="photo" type="file"/>
+      </div>
+
+
+      <div class="mb-3">
+        <label for="txtDescription" class="form-label">Description</label>
+        <input class="form-control" formControlName="description" type="text" placeholder="Enter product description..." />
+      </div>
+
+
+      <div class="mb-3">
+        <label for="txtStars" class="form-label">Stars</label>
+        <input class="form-control" formControlName="stars" type="text" />
+      </div>      
+
+      <div class="mb-3">
+        <label for="txtSupplier" class="form-label">Supplier</label>
+        <input class="form-control" formControlName="supplier" type="text" placeholder="Enter product supplier..." />
+      </div>
+
+      <div class="mb-3">
+        <label for="txtTax" class="form-label">TAX</label>
+        <input class="form-control" formControlName="tax" type="text"/>
+      </div>
+
+      <button class="button"  type="button" (click)="submit()" class="btn btn-primary">Save</button>
+
+    </form>
+  </div>
