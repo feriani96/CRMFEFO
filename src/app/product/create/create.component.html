@@ -13,10 +13,7 @@
       <input class="input form-control" formControlName="price" type="number" placeholder="Enter product price...">
     </div>
 
-    <div class="mb-3">
-      <label for="txtFavorite" class="form-label">Favorite</label>
-      <input class="input form-control" formControlName="favorite" type="boolean" />
-    </div>
+
 
 
     <!-------------JN Adding main image start----------->
@@ -51,21 +48,13 @@
 
 
     <div class="mb-3">
-      <label for="txtStars" class="form-label">Stars</label>
-      <input class="form-control" formControlName="stars" type="text" />
-    </div>
-
-    <div class="mb-3">
-      <label for="txtSupplier" class="form-label">Supplier</label>
-      <input class="form-control" formControlName="supplier" type="text" placeholder="Enter product supplier..." />
-    </div>
-
-    <div class="mb-3">
       <label for="txtTax" class="form-label">TAX</label>
       <input class="form-control" formControlName="tax" type="text" />
     </div>
-
-    <button class="button" type="button" (click)="submit()" class="btn btn-primary">Save</button>
-
+  <div>
+    <button class="button" type="button" (click)="submit()" class="btn btn-primary mx-1">Save</button>
+    <button class="button" type="button"  routerLink="/product/home" class="btn btn-danger mx-1" >Back</button>
+  </div>
+    
   </form>
 </div>

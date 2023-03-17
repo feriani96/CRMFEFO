@@ -25,23 +25,16 @@ export class CreateComponent implements OnInit {
     this.productForm = this._formBuilder.group({
       name: '',
       price: 0,
-      favorite: true,
       photo: null,
       photoContentType: null,
       description: '',
-      stars: 0,
-      supplier: '',
-      tax: 0,
+      tax: 17,
 
     });
 
   }
-  ngOnInit() {
-  }
 
-
-
-
+  ngOnInit() { }
 
   submit() {
 
@@ -82,14 +75,6 @@ export class CreateComponent implements OnInit {
 
 
   //--------------JN ADD MAIN PHOTO ENDS--------//
-
-
-
-
-
-
-
-
 
 
 }

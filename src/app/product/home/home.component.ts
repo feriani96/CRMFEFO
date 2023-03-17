@@ -9,7 +9,7 @@ declare var window: any;
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
 
   products: Product[] = [];
   productsDto: ProductDto[] = [];
@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit{
   idTodelete: any;
 
 
-  constructor(private productService:ProductService ) { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
 
@@ -28,62 +28,62 @@ export class HomeComponent implements OnInit{
       this.productsDto = this.inintProductDto(this.products);
       console.log(this.products);
     });
-    
+
     this.deleteModal = new window.bootstrap.Modal(
       document.getElementById('deleteModal')
     );
-      this.get();
-    }
-    get()
-    {
-      this.productService.get().subscribe((data)=>{this.products=data;
-       // console.log(data);
-      });
-    }
+    this.get();
+  }
+  get() {
+    this.productService.get().subscribe((data) => {
+      this.products = data;
+      // console.log(data);
+    });
+  }
 
-    openDeleteModal(id: string) {
-      this.idTodelete = id;
-      this.deleteModal.show();
-    }
+  openDeleteModal(id: string) {
+    this.idTodelete = id;
+    this.deleteModal.show();
+  }
 
-    delete() {
-      this.productService.delete(this.idTodelete).subscribe({
-        next: (data: any) => {
+  delete() {
+    this.productService.delete(this.idTodelete).subscribe({
+      next: (data: any) => {
         this.products = this.products.filter((id: any) => id !== this.idTodelete);
         this.deleteModal.hide();
-      }});  
-    }
-    
+      }
+    });
+  }
 
-    inintProductDto(products: Product[]):ProductDto[] {
-      let tempProductDto: ProductDto[] = [];
-    
-      products.forEach((product) => {
-  
-        const restDto: ProductDto = {
-          id: product.id,
-          name: product.name,
-          price: product.price,
-          favorite: product.favorite,
-          description: product.description,
-          stars: product.stars,
-          supplier: product.supplier,      
-          tax: product.tax,
-          photo: this.getPhoto(product.photo),
-        
-        };
-  
-        tempProductDto.push(restDto);
-  
-      });
-  
-      return tempProductDto;
-    }
-   
-    private getPhoto(data: string): any {
+
+  inintProductDto(products: Product[]): ProductDto[] {
+    let tempProductDto: ProductDto[] = [];
+
+    products.forEach((product) => {
+
+      const restDto: ProductDto = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        description: product.description,
+
+
+        tax: product.tax,
+        photo: this.getPhoto(product.photo),
+
+      };
+
+      tempProductDto.push(restDto);
+
+    });
+
+    return tempProductDto;
+  }
+
+  private getPhoto(data: string): any {
     return 'data:image/jpg;base64,' + data;
-    }
-  
+  }
+
 
 }
 
