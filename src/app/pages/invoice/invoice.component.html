@@ -1,16 +1,22 @@
 <table class="table table-stripped">
     <thead class="list">
+        <th>Code</th>
+        <th>Remarks</th>
         <th>Discount</th>
         <th>Tax</th>
         <th>Date</th>
         <th>Total</th>
         <th>Stamp</th>
         <th>Client</th>
+
     </thead>
 
     <tbody>
         <tr *ngFor="let invoice of invoicesDto">
-            <td scope="row">{{invoice.discount}}</td>
+
+            <td scope="row">{{invoice.code}}</td>
+            <td>{{invoice.remarks}}</td>
+            <td >{{invoice.discount}}</td>
             <td>{{invoice.tax}}</td>
             <td>{{invoice.date}}</td>
             <td>{{invoice.total}}</td>

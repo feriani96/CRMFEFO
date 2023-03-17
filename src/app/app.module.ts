@@ -11,6 +11,9 @@ import { SaleComponent } from './pages/sale/sale.component';
 import { CreateClientComponent } from './pages/client/create-client/create-client.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductModule } from './product/product.module';
+import { InvoicesModule } from './invoices/invoices.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -25,8 +28,10 @@ import { ProductModule } from './product/product.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ProductModule
-    
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
+    ProductModule,
+    InvoicesModule
 
   ],
   providers: [],

@@ -7,7 +7,7 @@
 
 <!-- left sidebar nav  -->
 
-<div  class="sidebar shadow p-2"  id="sidebar"  [ngStyle]="responsiveMenu">
+<div class="sidebar shadow p-2" id="sidebar" [ngStyle]="responsiveMenu">
     <ul>
         <li><a routerLink=""><i class="bi bi-speedometer2"></i> Dashboard</a></li>
         <li><a routerLink="/client"><i class="bi bi-person-gear"></i> Client</a>
@@ -18,15 +18,24 @@
         </li>
         <li><a routerLink="/invoice"><i class="bi bi-card-text"></i> Invoice</a></li>
         <li>
-            <a routerLink="/product/home"><i class="bi bi-bag"></i> Products <!-- <i class="bi bi-arrow-right icon"></i> --></a>
+            <a routerLink="/product/home"><i class="bi bi-bag"></i> Products</a>
             <ul class="dropdow-container">
                 <li><a routerLink="/product/create">Create</a></li>
                 <li><a href="#">Update</a></li>
             </ul>
         </li>
+       
+        <li>
+            <a routerLink="/listInvoice"><i class="bi bi-card-text"></i> Invoices </a>
+            <ul class="dropdow-container">
+                <li><a routerLink="/createInvoice">Add Invoice</a></li>
+                <li><a routerLink="/listInvoice">List Invoices</a></li>
+            </ul>
+        </li>
+
         <li>
             <a routerLink="/sale"><i class="bi bi-tag"></i> Sale <!-- <i class="bi bi-arrow-right icon"></i> --></a>
-   
+
         </li>
         <li><a routerLink="/users"><i class="bi bi-person-gear"></i> User</a></li>
         <li><a href="#"><i class="bi bi-box-arrow-left"></i> Logout</a></li>

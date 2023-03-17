@@ -31,6 +31,9 @@ inintInvoiceDto(invoices: Invoice[]):InvoiceDto[] {
   invoices.forEach((invoice) => {
 
     const restDto: InvoiceDto = {
+
+      code:invoice.code, 
+      remarks:invoice.remarks,
       discount: invoice.discount,
       tax: invoice.tax,
       date: invoice.date,
