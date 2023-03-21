@@ -22,9 +22,19 @@ export class ProductService {
   create(payload: Product) {
     return this.http.post<Product>('http://localhost:8080/api/products', payload);
   }
-  getById(id: number) {
+
+  
+  getById(id: string) {
     return this.http.get<Product>(`http://localhost:8080/api/products/${id}`);
   }
+
+
+ 
+  update(payload:Product){
+    return this.http.put(`http://localhost:8080/api/products/${payload.id}`,payload);
+   }
+
+
 
   delete(id: string) {
     return this.http.delete<Product>(`http://localhost:8080/api/products/${id}`);

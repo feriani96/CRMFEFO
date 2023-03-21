@@ -6,12 +6,14 @@ import { HomeComponent } from './home/home.component';
 import { CreateComponent } from './create/create.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { EditComponent } from './edit/edit.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     CreateComponent,
+    EditComponent
   ],
   imports: [
     CommonModule,
@@ -19,11 +21,12 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule
-
+ 
   ],
   exports: [
     HomeComponent,
-    CreateComponent
+    CreateComponent,
+    EditComponent,
     
 
   ]

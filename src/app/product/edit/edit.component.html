@@ -2,52 +2,28 @@
 
   <div class="container">
     <legend>Edit Product</legend>
-    <!--form [formGroup]="productForm">
-
-     
+    <form>
       <div class="mb-3">
         <label for="txtName" class="form-label">Name</label>
-        <input class="form-control"  formControlName="name" type="text" placeholder="Enter product name..."/>
+        <input type="text" name="name" [(ngModel)] = "productForm.name" class="form-control" id="txtName" />
       </div>
-
       <div class="mb-3">
         <label for="txtPrice" class="form-label">Price</label>
-        <input class="input form-control" formControlName="price" type="number" placeholder="Enter product price...">      
+        <input type="number" name="price" [(ngModel)] = "productForm.price" class="form-control" id="txtPrice" />
       </div>
-        
-      <div class="mb-3">
-        <label for="txtFavorite" class="form-label">Favorite</label>
-        <input class="input form-control" formControlName="favorite" type="boolean"/>
-      </div>
-
-      <div class="mb-3">
-        <label for="txtFavorite" class="form-label">Photo</label>
-        <input class="input form-control" formControlName="photo" type="file"/>
-      </div>
-
-
       <div class="mb-3">
         <label for="txtDescription" class="form-label">Description</label>
-        <input class="form-control" formControlName="description" type="text" placeholder="Enter product description..." />
+        <input type="text" name="description" [(ngModel)] = "productForm.description" class="form-control" id="txtDescription" />
+      </div>
+      <div class="mb-3">
+        <label for="txtTax" class="form-label">tax</label>
+        <input type="text" name="tax" [(ngModel)] = "productForm.tax" class="form-control" id="txtTax" />
       </div>
 
-
-      <div class="mb-3">
-        <label for="txtStars" class="form-label">Stars</label>
-        <input class="form-control" formControlName="stars" type="text" />
-      </div>      
-
-      <div class="mb-3">
-        <label for="txtSupplier" class="form-label">Supplier</label>
-        <input class="form-control" formControlName="supplier" type="text" placeholder="Enter product supplier..." />
+      <div>
+        <button class="button" type="button" (click)="update()" class="btn btn-primary mx-1">Update</button>
+        <button class="button" type="button"  routerLink="/client/home" class="btn btn-danger mx-1" >Back</button>
       </div>
-
-      <div class="mb-3">
-        <label for="txtTax" class="form-label">TAX</label>
-        <input class="form-control" formControlName="tax" type="text"/>
-      </div>
-
-      <button type="button" (click)="update()" class="btn btn-primary">Update</button>
-
-    </form-->
+    
+    </form>
   </div> 
