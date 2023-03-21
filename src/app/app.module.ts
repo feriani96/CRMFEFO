@@ -14,6 +14,7 @@ import { ProductModule } from './product/product.module';
 import { InvoicesModule } from './invoices/invoices.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { ClientModule } from './client/client.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     ToastrModule.forRoot(),
     ProductModule,
-    InvoicesModule
+    InvoicesModule,
+    ClientModule,
 
   ],
   providers: [],

@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
 
 
     
-    this.productService.getProducts().subscribe((data: ProductDto[]) => {
+    this.productService.get().subscribe((data: ProductDto[]) => {
       this.products = data;
       this.productsDto = this.inintProductDto(this.products);
       console.log(this.products);
@@ -75,9 +75,6 @@ export class HomeComponent implements OnInit {
   private getPhoto(data: string): any {
     return 'data:image/jpg;base64,' + data;
   }
-
-
-
 
 
   openDeleteModal(id: string) {
