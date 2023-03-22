@@ -10,10 +10,38 @@
       <input type="number" name="price" [(ngModel)]="productForm.price" class="form-control" id="txtPrice" />
     </div>
 
+    <label class="form-label" for="field_photo">Photo</label>
+        <div>
+            <img
+              [src]="'data:' + formGroup.get('photoContentType')!.value + ';base64,' + formGroup.get('photo')!.value"
+              style="max-height: 100px"
+              *ngIf="formGroup.get('photo')!.value"
+              alt="product image"
+            />
+            <div *ngIf="formGroup.get('photo')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start">{{ formGroup.get('photoContentType')!.value }}, {{ byteSize(formGroup.get('photo')!.value!) }}</span>
+              <button
+                type="button"
+                (click)="clearInputImage('photo', 'photoContentType', 'file_photo')"
+              >
+              <i class="bi bi-x" style="background-color:none; width: 12px; border: none;" ></i>
+                          </button>
+            </div>
+            <input type="file" id="file_photo" data-cy="photo" (change)="setFileData($event, 'photo', true)" accept="image/*" />
+          </div>
+          <input type="hidden" class="form-control" name="photo" id="field_photo" data-cy="photo" formControlName="photo" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="photoContentType"
+            id="field_photoContentType"
+            formControlName="photoContentType"
+          />
+
 
     <!-------------JN Adding main image start----------->
 
-    <div class="row mb-3">
+    <!-- <div class="row mb-3">
       <label class="form-label" for="field_photo"> Photo</label>
       <div>
         <img [src]="'data:' +formGroup.get('photoContentType')!.value + ';base64,' + formGroup.get('photo')!.value"
@@ -31,7 +59,7 @@
       <input type="hidden" class="form-control" name="photo" id="field_photo" data-cy="photo" formControlName="photo" />
       <input type="hidden" class="form-control" name="photoContentType" id="field_photoContentType"
         formControlName="photoContentType" />
-    </div>
+    </div> -->
 
     <!-------------JN Adding main image start----------->
 

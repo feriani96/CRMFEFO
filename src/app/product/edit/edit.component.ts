@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef  } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/Product';
@@ -38,6 +38,7 @@ export class EditComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
+    protected elementRef: ElementRef,
     private productService: ProductService,
   ) { 
      
@@ -66,6 +67,16 @@ export class EditComponent implements OnInit {
     this.productService.getById(id).subscribe((data) => {
       this.productForm = data;
     });
+  }
+
+  clearInputImage(field: string, fieldContentType: string, idInput: string): void {
+    this.formGroup.patchValue({
+      [field]: null,
+      [fieldContentType]: null,
+    });
+    if (idInput && this.elementRef.nativeElement.querySelector('#' + idInput)) {
+      this.elementRef.nativeElement.querySelector('#' + idInput).value = null;
+    }
   }
 
   update() {
