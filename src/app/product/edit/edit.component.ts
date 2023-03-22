@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/Product';
+import { DataUtils,FileLoadError} from 'src/app/service/data-util.service';
+import { EventManager } from 'src/app/service/event-manager.service';
 import { ProductService } from 'src/app/service/product.service';
 
 @Component({
@@ -12,21 +14,46 @@ import { ProductService } from 'src/app/service/product.service';
 
 export class EditComponent implements OnInit {
 
+  formGroup!: FormGroup;
+
+  
   productForm: Product = {
 
     id: '',
     name: '',
     price: 0,
+    photo: null,
+    photoContentType: '',
     description: '',
     tax: 0,
-    photo:null,
-   
+
   };
+
+  
+ 
+
   constructor(
+    protected dataUtils: DataUtils,
+    protected eventManager: EventManager,
+    private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private productService: ProductService,
-  ) { }
+  ) { 
+     
+    this.formGroup = this.fb.group({
+      name: '',
+      price: 0,
+      photo: null,
+      photoContentType: null,
+      description: '',
+      tax: 17,
+
+    });
+   
+
+  }
+
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((param) => {
@@ -52,7 +79,35 @@ export class EditComponent implements OnInit {
         }
       })
   }
+
+//--------------JN ADD MAIN PHOTO STARTS--------//
+
+
+byteSize(base64String: string): string {
+  return this.dataUtils.byteSize(base64String);
+}
+
+openFile(base64String: string, contentType: string | null | undefined): void {
+  this.dataUtils.openFile(base64String, contentType);
 }
 
 
-  
+
+setFileData(event: Event, field: string, isImage: boolean): void {
+  this.dataUtils.loadFileToForm(event, this.formGroup,field, isImage).subscribe({
+    error: (err: FileLoadError) =>
+      this.eventManager.broadcast('big error'),
+  });
+}
+
+
+
+
+//--------------JN ADD MAIN PHOTO ENDS--------//
+
+
+
+
+}
+
+

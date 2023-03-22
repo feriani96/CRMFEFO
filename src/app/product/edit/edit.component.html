@@ -1,29 +1,54 @@
+<div class="container">
+  <legend>Edit Product</legend>
+  <form>
+    <div class="mb-3">
+      <label for="txtName" class="form-label">Name</label>
+      <input type="text" name="name" [(ngModel)]="productForm.name" class="form-control" id="txtName" />
+    </div>
+    <div class="mb-3">
+      <label for="txtPrice" class="form-label">Price</label>
+      <input type="number" name="price" [(ngModel)]="productForm.price" class="form-control" id="txtPrice" />
+    </div>
 
 
-  <div class="container">
-    <legend>Edit Product</legend>
-    <form>
-      <div class="mb-3">
-        <label for="txtName" class="form-label">Name</label>
-        <input type="text" name="name" [(ngModel)] = "productForm.name" class="form-control" id="txtName" />
-      </div>
-      <div class="mb-3">
-        <label for="txtPrice" class="form-label">Price</label>
-        <input type="number" name="price" [(ngModel)] = "productForm.price" class="form-control" id="txtPrice" />
-      </div>
-      <div class="mb-3">
-        <label for="txtDescription" class="form-label">Description</label>
-        <input type="text" name="description" [(ngModel)] = "productForm.description" class="form-control" id="txtDescription" />
-      </div>
-      <div class="mb-3">
-        <label for="txtTax" class="form-label">tax</label>
-        <input type="text" name="tax" [(ngModel)] = "productForm.tax" class="form-control" id="txtTax" />
-      </div>
+    <!-------------JN Adding main image start----------->
 
+    <div class="row mb-3">
+      <label class="form-label" for="field_photo"> Photo</label>
       <div>
-        <button class="button" type="button" (click)="update()" class="btn btn-primary mx-1">Update</button>
-        <button class="button" type="button"  routerLink="/client/home" class="btn btn-danger mx-1" >Back</button>
+        <img [src]="'data:' +formGroup.get('photoContentType')!.value + ';base64,' + formGroup.get('photo')!.value"
+          style="max-height: 100px" *ngIf="formGroup.get('photo')!.value" alt="product image" />
+        
+        <div *ngIf="formGroup.get('photo')!.value" class="form-text text-danger clearfix">
+          <span class="pull-start">{{formGroup.get('photoContentType')!.value }}, {{
+            byteSize(formGroup.get('photo')!.value!) }}</span>
+        </div>
+
+        <input type="file" id="file_photo" data-cy="photo" (change)="setFileData($event, 'photo', true)"
+          accept="image/*" />
+      
       </div>
-    
-    </form>
-  </div> 
+      <input type="hidden" class="form-control" name="photo" id="field_photo" data-cy="photo" formControlName="photo" />
+      <input type="hidden" class="form-control" name="photoContentType" id="field_photoContentType"
+        formControlName="photoContentType" />
+    </div>
+
+    <!-------------JN Adding main image start----------->
+
+    <div class="mb-3">
+      <label for="txtDescription" class="form-label">Description</label>
+      <input type="text" name="description" [(ngModel)]="productForm.description" class="form-control"
+        id="txtDescription" />
+    </div>
+    <div class="mb-3">
+      <label for="txtTax" class="form-label">tax</label>
+      <input type="text" name="tax" [(ngModel)]="productForm.tax" class="form-control" id="txtTax" />
+    </div>
+
+    <div>
+      <button class="button" type="button" (click)="update()" class="btn btn-primary mx-1">Update</button>
+      <button class="button" type="button" routerLink="/client/home" class="btn btn-danger mx-1">Back</button>
+    </div>
+
+  </form>
+</div>

@@ -5,6 +5,7 @@ export class Product {
   name: string;
   price: number;
   photo: any;
+  photoContentType?: string | null;
   description: string;
   tax: number
   
@@ -13,6 +14,7 @@ export class Product {
     this.name = '';
     this.price = 0;
     this.photo = '';
+    this.photoContentType='';
     this.description = '';
     this.tax = 0;
 
@@ -25,6 +27,7 @@ export interface ProductDto {
   name: string;
   price: number;
   photo: any;
+  photoContentType?: string | null;
   description: string;
   tax: number;
 }
