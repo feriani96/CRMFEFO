@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/Product';
 import { DataUtils, FileLoadError } from 'src/app/service/data-util.service';
@@ -15,8 +15,7 @@ import { ProductService } from 'src/app/service/product.service';
 export class EditComponent implements OnInit {
 
   formGroup!: FormGroup;
-
-
+ 
   productForm: Product = {
 
     id: '',
@@ -29,9 +28,6 @@ export class EditComponent implements OnInit {
 
   };
 
-
-
-
   constructor(
     protected dataUtils: DataUtils,
     protected eventManager: EventManager,
@@ -43,6 +39,7 @@ export class EditComponent implements OnInit {
   ) {
 
     this.formGroup = this.fb.group({
+      id:'',
       name: '',
       price: 0,
       photo: null,
@@ -52,6 +49,8 @@ export class EditComponent implements OnInit {
 
     });
 
+    
+   
 
   }
 
@@ -66,23 +65,26 @@ export class EditComponent implements OnInit {
   getById(id: string) {
     this.productService.getById(id).subscribe((data) => {
       this.productForm = data;
-      this.productForm = {
+        console.log( "this.productForm" , this.productForm);
+  //----JN It is very important to convert product(object) to form group --------//
+        this.formGroup.patchValue({
         id: this.productForm.id,
-        name:this.productForm.name,
+        name: this.productForm.name,
         price: this.productForm.price,
-        photo: this.getPhoto(this.productForm.photo),
+        photo:this.productForm.photo,
         description: this.productForm.description,
-        tax:this.productForm.tax,
-       
-  
-      };
+        tax:this.productForm.tax });
+
+
     });
+   
+   
   }
 
 
 
   update() {
-    this.productService.update(this.productForm)
+    this.productService.update(this.formGroup.value)
       .subscribe({
         next: (data) => {
           this.router.navigate(["/product/home"]);
@@ -95,11 +97,6 @@ export class EditComponent implements OnInit {
 
   //--------------JN ADD MAIN PHOTO STARTS--------//
 
-
- 
-private getPhoto(data: string): any {
-  return 'data:image/jpg;base64,' + data;
-}
 
 
 
