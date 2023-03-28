@@ -52,6 +52,12 @@
       <label for="txtTax" class="form-label">TAX</label>
       <input class="form-control" formControlName="tax" type="text" />
     </div>
+
+    <div class="mb-3">
+      <label for="txtInStock" class="form-label">In stock</label>
+      <input class="input form-control" formControlName="inStock" type="number" placeholder="Enter the new product stock...">
+    </div>
+    
     <div>
       <button class="button" type="button" (click)="update()" class="btn btn-primary mx-1">Update</button>
       <button class="button" type="button" routerLink="/product/home" class="btn btn-danger mx-1">Back</button>

@@ -7,7 +7,9 @@ export class Product {
   photo: any;
   photoContentType?: string | null;
   description: string;
-  tax: number
+  tax: number;
+  inStock: number;
+
   
   constructor() {
     this.id = '';
@@ -17,7 +19,7 @@ export class Product {
     this.photoContentType='';
     this.description = '';
     this.tax = 0;
-
+    this.inStock= 0;
 
   }
 }
@@ -30,4 +32,5 @@ export interface ProductDto {
   photoContentType?: string | null;
   description: string;
   tax: number;
+  inStock: number;
 }

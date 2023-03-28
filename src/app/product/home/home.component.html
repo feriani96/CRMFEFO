@@ -10,6 +10,7 @@
         <th scope="col">PHOTO</th>
         <th scope="col">DESCRIPTION</th>
         <th scope="col">TAX</th>
+        <th scope="col">IN STOCK</th>
         <th> <a class="btn btn-primary mx-1" title="Add New Product" routerLink="/product/create"><i
               class="bi bi-plus"></i></a></th>
       </tr>
@@ -27,6 +28,8 @@
         <td>{{product.description}}</td>
 
         <td>{{product.tax}}</td>
+        <td>{{product.inStock}}</td>
+
         <td>
           <div>
             <button class="btn btn-primary mx-1" title="Edit Product" [routerLink]="['/product/edit',product.id]"><i class="bi bi-pencil"></i></button>

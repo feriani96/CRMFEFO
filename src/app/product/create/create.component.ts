@@ -29,7 +29,7 @@ export class CreateComponent implements OnInit {
       photoContentType: null,
       description: '',
       tax: 17,
-
+      inStock: 0
     });
 
   }

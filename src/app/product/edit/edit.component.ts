@@ -25,6 +25,7 @@ export class EditComponent implements OnInit {
     photoContentType: '',
     description: '',
     tax: 0,
+    inStock:0,
 
   };
 
@@ -46,6 +47,7 @@ export class EditComponent implements OnInit {
       photoContentType: null,
       description: '',
       tax: 17,
+      inStock:0,
 
     });
 
@@ -73,8 +75,8 @@ export class EditComponent implements OnInit {
         price: this.productForm.price,
         photo:this.productForm.photo,
         description: this.productForm.description,
-        tax:this.productForm.tax });
-
+        tax:this.productForm.tax,
+        inStock: this.productForm.inStock});
 
     });
    

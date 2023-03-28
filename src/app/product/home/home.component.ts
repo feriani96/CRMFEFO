@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
         description: product.description,
         tax: product.tax,
         photo: this.getPhoto(product.photo),
-
+        inStock: product.inStock
       };
 
       tempProductDto.push(restDto);
