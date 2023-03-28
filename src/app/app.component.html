@@ -1,7 +1,16 @@
+
+
+
+
+
+
 <!-- topnavbar -->
 <div class="topnav shadow p-1">
     <a>Admin Dashboard</a>
     <span class="menu" (click)="openNav(true)"><i class="bi bi-list"></i></span>
+    
+
+
 </div>
 <!-- topnavbar -->
 
@@ -37,7 +46,7 @@
             <a routerLink="/sale"><i class="bi bi-tag"></i> Sale <!-- <i class="bi bi-arrow-right icon"></i> --></a>
 
         </li>
-        <li><a routerLink="/users"><i class="bi bi-person-gear"></i> User</a></li>
+        <li><a routerLink=""><i class="bi bi-person-gear"></i> User</a></li>
         <li><a href="#"><i class="bi bi-box-arrow-left"></i> Logout</a></li>
 
     </ul>
@@ -46,6 +55,7 @@
 
 
 <!-- main content  -->
+
 
 <div class="main-content" [ngStyle]="responsiveContent">
     <router-outlet></router-outlet>

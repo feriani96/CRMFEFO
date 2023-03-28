@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
+
 
 import { ClientComponent } from './pages/client/client.component';
 import { InvoiceComponent } from './pages/invoice/invoice.component';
@@ -15,6 +17,7 @@ import { InvoicesModule } from './invoices/invoices.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { ClientModule } from './client/client.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -34,9 +37,10 @@ import { ClientModule } from './client/client.module';
     ProductModule,
     InvoicesModule,
     ClientModule,
+    AuthModule
 
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
